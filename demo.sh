@@ -4,8 +4,9 @@
 
 set -e
 
+# Update this to the latest version when convenient
 drupalmajor=7
-drupalminor=27
+drupalminor=28
 
 # Don't use this password if your MySQL server is on the public internet
 sqlrootpw="q9z7a1"
@@ -58,7 +59,7 @@ do_initgit() {
     set -x
 
     # Prepare our shared repo (eventually this would be on github)
-    mkdir "$barerepo"
+    mkdir -p "$barerepo"
     cd "$barerepo"
     git init --bare
 
