@@ -56,32 +56,48 @@ and then pulling the project repo onto a second machine.
 # Drupal core update scenario
 - To start a project, begin by creating an empty project on github.
   Then clone it locally:
+```
     $ git clone git@github.com:me/foo.git
     $ cd foo
+```
   Add the current Drupal 7 (say, 7.27), tracking only the 7.x branch to save space, e.g.
+```
     $ git remote add upstream -t 7.x http://git.drupal.org/project/drupal.git
     $ git fetch upstream
     $ git checkout 7.x
     $ git reset --hard 7.27
+```
   Merge that into the master branch:
+```
     $ git checkout master
     $ git merge 7.x
+```
   Push everything to a git repo on github, e.g.
+```
     $ git push origin --all
     $ git push origin --tags
+```
 - Development continues, with many commits and module updates on master branch as above
 - New version of Drupal is released (say, 7.28)
 - In a clean repo (with no outstanding changes waiting to be committed),
   Developer A grabs the new Drupal with git:
+```
     $ git checkout 7.x
     $ git fetch
     $ git reset --hard 7.28
+```
 - Now the fun part: rebase master atop the new 7.x:
+```
     $ git checkout master
     $ git rebase 7.x
+```
 - Review the git history to verify that your project's changes are
   now later in history than the updated Drupal core:
+```
     $ git log
+```
 - And test locally.  Once it seems to be working, push everything:
+```
     $ git push origin --all
     $ git push origin --tags
+```
