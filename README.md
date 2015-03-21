@@ -60,19 +60,19 @@ and then pulling the project repo onto a second machine.
     $ git clone git@github.com:me/foo.git
     $ cd foo
 ```
-  Add the current Drupal 7 (say, 7.27), tracking only the 7.x branch to save space, e.g.
+- Add the current Drupal 7 (say, 7.27), tracking only the 7.x branch to save space, e.g.
 ```
     $ git remote add upstream -t 7.x http://git.drupal.org/project/drupal.git
     $ git fetch upstream
     $ git checkout 7.x
     $ git reset --hard 7.27
 ```
-  Merge that into the master branch:
+- Merge that into the master branch:
 ```
     $ git checkout master
     $ git merge 7.x
 ```
-  Push everything to a git repo on github, e.g.
+- Push everything to a git repo on github, e.g.
 ```
     $ git push origin --all
     $ git push origin --tags
